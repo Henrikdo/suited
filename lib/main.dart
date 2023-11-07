@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suited/views/products_screen.dart';
 import 'package:suited/views/views.dart';
 
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp( 
       debugShowCheckedModeBanner: false,
-      home:LoginScreen(),
+      home:ProductScreen(),
     );
   }
 }
