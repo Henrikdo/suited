@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'components/components.dart';
 import 'dart:developer' as dev;
 
@@ -9,7 +10,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("APP"),
+          title: const Text("Account Login"),
         ),
         body: Center(
           child: _form(context),
@@ -20,13 +21,33 @@ class LoginScreen extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.8,
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        InputText(hintText: 'Username', padding: 4.0),
-        InputText(hintText: 'Password', padding: 4.0),
+        const TextField(
+          decoration: InputDecoration(
+              contentPadding: EdgeInsets.all(10),
+              isDense: true,
+              border: OutlineInputBorder(),
+              hintText: 'E-mail',
+              suffixIcon: Icon(FontAwesomeIcons.user)),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        const TextField(
+          obscureText: true,
+          decoration: InputDecoration(
+              contentPadding: EdgeInsets.all(10),
+              isDense: true,
+              border: OutlineInputBorder(),
+              hintText: 'Password',
+              suffixIcon: Icon(FontAwesomeIcons.lock)),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
         _btn(),
       ]),
     );
   }
-
 
   //TODO: TRANSFORMAR EM COMPONENTE
   Widget _btn() {
@@ -49,8 +70,8 @@ class LoginScreen extends StatelessWidget {
           TextButton(
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
-                
-                padding: const EdgeInsets.only(top:6.0,bottom: 6,right: 16,left: 16),
+                padding: const EdgeInsets.only(
+                    top: 6.0, bottom: 6, right: 16, left: 16),
                 textStyle: const TextStyle(fontSize: 20),
               ),
               onPressed: () {

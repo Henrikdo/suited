@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:suited/views/products_screen.dart';
 import 'package:suited/views/views.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-
-void main(List<String> args) {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
