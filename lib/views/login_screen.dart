@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:suited/controller/auth_controller.dart';
 import 'components/components.dart';
+import 'package:get/get.dart';
 import 'dart:developer' as dev;
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+
+  final _authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +21,27 @@ class LoginScreen extends StatelessWidget {
         ));
   }
 
+  Widget _anomLogin() {
+    return Container(
+      child: OutlinedButton(
+        style: OutlinedButton.styleFrom(
+            side: const BorderSide(width: 1, color: Colors.grey)),
+        child: const Text('Sign-in Anon'),
+        onPressed: () async {
+          await _authController.signInAnon();
+        },
+      ),
+    );
+  }
+
   Widget _form(context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.8,
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        _anomLogin(),
+        const SizedBox(
+          height: 30,
+        ),
         const TextField(
           decoration: InputDecoration(
               contentPadding: EdgeInsets.all(10),
